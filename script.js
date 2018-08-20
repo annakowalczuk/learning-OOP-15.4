@@ -9,23 +9,17 @@
         //by using this, the 'brand' property of the object we create will assume the value of the brand argument
     };
 
-    var textJoined = [];
-
-    Phone.prototype.myString = function () {
-        var text = ['The phone brand is ', this.brand, ', color is ', this.color, ' and the price is ', this.price, ' EUR and the Operating System is ', this.os, '.'];
-        textJoined = text.join('');
-        return textJoined;
+    Phone.prototype.infoString = function () {
+        return 'The phone brand is ' + this.brand + ', color is ' + this.color + ' and the price is ' + this.price + ' EUR and the Operating System is ' + this.os + '.';
     };
     
     Phone.prototype.printInfo = function () {
-        this.myString();
-        console.log(textJoined);
+        console.log(this.infoString());
     };
 
     Phone.prototype.log = function () {
-        this.myString();
         var output = document.getElementById('output');
-        output.innerHTML += textJoined + '<br>';
+        output.innerHTML += this.infoString() + '<br>';
     };
 
     var SamsungGalaxyS6 = new Phone('Samsung', 280, 'black', 'Android Lollipop');
@@ -35,12 +29,12 @@
 
     SamsungGalaxyS6.printInfo();
     iPhone6S.printInfo();
-    SamsungGalaxyS6.printInfo();
+    OnePlusOne.printInfo();
     XiaomiMi5.printInfo();
 
     SamsungGalaxyS6.log();
     iPhone6S.log();
-    SamsungGalaxyS6.log();
+    OnePlusOne.log();
     XiaomiMi5.log();
 
 
